@@ -193,11 +193,11 @@ section {
 }
 
 .card-container {
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    row-gap: 48px;
-    column-gap: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 600px));
+    gap: 80px;
+    padding: 0 12em;
+
 
     .card {
         background: url(images/noise1.svg) no-repeat center/cover,
@@ -251,6 +251,14 @@ section {
 }
 
 #campaigns-home {
+    .card-container {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        row-gap: 48px;
+        column-gap: 0;
+    }
+
     .card {
         height: 650px;
         padding-bottom: 2em;
