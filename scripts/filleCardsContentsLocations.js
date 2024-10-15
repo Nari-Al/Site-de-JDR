@@ -82,14 +82,9 @@ async function createCards() {
         cardDescription.classList.add('card-description');
         cardDescription.textContent = `${character['description']}`;
 
-        const cardSkills = document.createElement('p');
-        cardSkills.classList.add('card-aptitudes');
-        cardSkills.textContent = `Traits : ${character['bonus']}`;
-
         card.appendChild(cardTitle);
         card.appendChild(cardImg);
         card.appendChild(cardDescription);
-        card.appendChild(cardSkills);
 
         cardContainer.appendChild(card);
     });
