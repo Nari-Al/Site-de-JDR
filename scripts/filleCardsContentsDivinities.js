@@ -84,7 +84,7 @@ async function createCards() {
 
         const cardSkills = document.createElement('p');
         cardSkills.classList.add('card-aptitudes');
-        cardSkills.textContent = `Traits : ${character['bonus']}`;
+        cardSkills.textContent = `Fidèles : ${character['fideles']}`;
 
         card.appendChild(cardTitle);
         card.appendChild(cardImg);
