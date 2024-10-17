@@ -253,6 +253,9 @@ section {
 }
 
 .custom-dropdown {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   margin-bottom: 1em;
   position: relative;
   display: inline-block;
@@ -305,4 +308,10 @@ section {
 }
 .custom-dropdown .dropdown-options li:hover {
   background-color: #f0f0f0;
+}
+
+#map {
+  width: 100%;
+  height: 600px;
+  background-color: rgba(127, 179, 192, 0.4);
 }/*# sourceMappingURL=global.css.map */
