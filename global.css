@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Italiana:700|Italiana:400");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@font-face {
+  font-family: "RemixIcon";
+  src: url("fonts/remixicon.woff");
+}
 :root {
   --text-50: rgb(10, 12, 15);
   --text-100: rgb(20, 24, 31);
@@ -179,10 +183,11 @@ section {
 }
 
 .card-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 600px));
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
   gap: 80px;
-  padding: 0 12em;
+  flex-wrap: wrap;
 }
 .card-container .card {
   background: url(images/noise1.svg) no-repeat center/cover, linear-gradient(var(--accent-900) 0%, var(--secondary-900) 28%);
@@ -245,4 +250,59 @@ section {
 }
 #campaigns-home .card .card-description {
   max-height: 360px;
+}
+
+.custom-dropdown {
+  margin-bottom: 1em;
+  position: relative;
+  display: inline-block;
+  position: relative;
+  z-index: 10;
+  cursor: pointer;
+  font-size: 16px;
+  background: none;
+  font-family: "Italiana";
+  font-size: 2em;
+  font-weight: 700;
+  color: var(--primary-300);
+  width: 180px;
+  border-radius: 0;
+  outline: none;
+  border: none;
+  border-bottom: var(--primary-300) 2px solid;
+  background-color: var(--secondary-800);
+}
+.custom-dropdown .dropdown-title {
+  padding: 10px;
+  position: relative;
+}
+.custom-dropdown .dropdown-title:after {
+  content: "\ea4e";
+  font-family: "RemixIcon";
+  fill: var(--primary-300);
+  position: absolute;
+  top: 12px;
+  right: 6px;
+}
+.custom-dropdown .dropdown-options {
+  display: none;
+  /* Initially hidden */
+  position: absolute;
+  background: url(images/noise1.svg) no-repeat center/cover, linear-gradient(0deg, var(--background-950), var(--secondary-800));
+  border: 1px solid #ccc;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+.custom-dropdown .dropdown-options li {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  color: #333;
+}
+.custom-dropdown .dropdown-options li:last-child {
+  border-bottom: none;
+}
+.custom-dropdown .dropdown-options li:hover {
+  background-color: #f0f0f0;
 }/*# sourceMappingURL=global.css.map */

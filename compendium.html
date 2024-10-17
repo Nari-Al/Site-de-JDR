@@ -5,8 +5,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Everton - Personnages</title>
+    <title>Everton - Compendium</title>
     <link rel="stylesheet" href="global.css">
+    <script src="scripts/compendium.js"></script>
 </head>
 
 <body>
@@ -28,11 +29,19 @@
         </ul>
     </header>
     <section>
-        <h2>Les personnages</h2>
+        <div class="custom-dropdown">
+            <div id="categoryDropdown" class="dropdown-title">Races</div>
+            <ul class="dropdown-options">
+                <li data-value="races">Races</li>
+                <li data-value="sorts">Sorts</li>
+                <li data-value="bestiaire">Bestiaire</li>
+                <li data-value="classes">Classes</li>
+            </ul>
+        </div>
+
         <div class="card-container">
             <div class="card"></div>
         </div>
-
     </section>
 </body>
 
