@@ -105,8 +105,10 @@ document.addEventListener('DOMContentLoaded', function () {
     // Event listeners for toggling routes
     toggleRoutesButton.addEventListener('click', function () {
         if (map.hasLayer(routesLayer)) {
+            toggleRoutesButton.innerText = "Montrer les routes"
             map.removeLayer(routesLayer);
         } else {
+            toggleRoutesButton.innerText = "Cacher les routes"
             map.addLayer(routesLayer);
         }
     });
@@ -114,8 +116,10 @@ document.addEventListener('DOMContentLoaded', function () {
     // Event listeners for toggling rivers
     toggleRiversButton.addEventListener('click', function () {
         if (map.hasLayer(riversLayer)) {
+            toggleRiversButton.innerText = "Montrer les rivières"
             map.removeLayer(riversLayer);
         } else {
+            toggleRiversButton.innerText = "Cacher les rivières"
             map.addLayer(riversLayer);
         }
     });
