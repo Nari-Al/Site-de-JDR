@@ -1,11 +1,52 @@
-const SHEET = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTcfDbkIlX1JDGwoVEZwWewkDPW_B2sOC49u98xt7oAqOTWsjVTi-krJ7sLdCch-VfAVkbXswxtdS4Y/pub?gid=652307919&single=true&output=csv'
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelector('.dropdown-title').addEventListener('click', function () {
+        const dropdownOptions = document.querySelector('.dropdown-options');
+        dropdownOptions.style.display = dropdownOptions.style.display === 'block' ? 'none' : 'block';
+    });
 
-async function fetchData() {
+    document.querySelectorAll('.dropdown-options li').forEach(function (option) {
+        option.addEventListener('click', function () {
+            const title = document.querySelector('.dropdown-title');
+            title.textContent = this.textContent;  // Update the dropdown title with the selected option
+            title.dataset.value = this.dataset.value;  // Store the selected value in a dataset
+
+            // Hide the options after selecting
+            document.querySelector('.dropdown-options').style.display = 'none';
+
+            // Call the appropriate function based on the selected value
+            handleDropdownSelection(this.dataset.value);
+        });
+    });
+
+    // Function to handle the dropdown selection and call the correct function
+    function handleDropdownSelection(selectedCategory) {
+        const cardContainer = document.querySelector('.card-container');
+        cardContainer.innerHTML = ''; // Clear previous cards
+
+        switch (selectedCategory) {
+            case 'divinities':
+                fillCardsContentsDivinities();  // Call the function to fill with divinities information
+                break;
+            case 'factions':
+                fillCardsContentsFactions();  // Call the function to fill with factions information
+                break;
+            case 'legends':
+                fillCardsContentsLegends();  // Call the function to fill with legends information
+                break;
+            default:
+                console.error('Unknown category selected');
+                break;
+        }
+    }
+})
+
+const DIVINITIES_SHEET = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTcfDbkIlX1JDGwoVEZwWewkDPW_B2sOC49u98xt7oAqOTWsjVTi-krJ7sLdCch-VfAVkbXswxtdS4Y/pub?gid=652307919&single=true&output=csv'
+
+async function fetchData(SHEET) {
     const response = await fetch(SHEET);
     const data = await response.text();
     console.log(data)
     return data;
-
 }
 
 function csvToJSON(csv) {
@@ -56,8 +97,8 @@ function csvToJSON(csv) {
 }
 
 
-async function createCards() {
-    const csvData = await fetchData(); // Fetch the CSV data
+async function fillCardsContentsDivinities() {
+    const csvData = await fetchData(SHEET = DIVINITIES_SHEET); // Fetch the CSV data
     const characters = csvToJSON(csvData); // Convert CSV to JSON objects
 
     const cardContainer = document.querySelector('.card-container');
@@ -97,5 +138,5 @@ async function createCards() {
 
 // Run the function when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
-    createCards();
+    fillCardsContentsDivinities();
 });
